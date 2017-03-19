@@ -4,7 +4,7 @@ using System.Collections;
 using UnityStandardAssets.Characters.ThirdPerson;
 
 /**
- * Allow fundamentals enemy' operations, like looking for and attack player.
+ * Allow fundamentals enemy's operations, like looking for and attack player.
  * 
  */ 
 
@@ -41,9 +41,6 @@ public class Enemy : MonoBehaviour {
         aiContol = GetComponent<AICharacterControl>();
         anim = GetComponent<Animator>();
         anim.SetBool("Prepare to walk", true);
-        //anim = transforms[0].GetComponent<Animator>();
-        //currentState = "";
-
 
         anim = GetComponent<Animator>();
         anim.SetBool("land", true);
@@ -100,8 +97,7 @@ public class Enemy : MonoBehaviour {
 		else
 			ScoreMenager.score += Mathf.Abs(hp);
 
-        if (hp <= 0)
-        {
+        if (hp <= 0){
             enemyKilledEvent.Invoke();
             Instantiate(corpse, transform.position, transform.rotation);
             Destroy(gameObject);
@@ -115,11 +111,8 @@ public class Enemy : MonoBehaviour {
         aiContol.enabled = see;
     }
 
-	private void animationSet(string animationToPlay)
-	{
+	private void animationSet(string animationToPlay){
 		stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-		//animationReset();
-
 		if (currentState == "") {
 			currentState = animationToPlay;
 			if (stateInfo.IsName ("Base Layer.run") && currentState != "run") {
@@ -131,60 +124,4 @@ public class Enemy : MonoBehaviour {
 			currentState = "";
 		}
 	}
-
-    /*
-    public void OnDisable() {
-        enemyKilledEvent.Invoke();
-        Instantiate(corpse, transform.position, transform.rotation);
-    }
-    */
-    /*
-
-		private void animationReset()
-	{
-		if (!stateInfo.IsName("Base Layer.idle0")) {
-			anim.SetBool("idle0ToIdle1", false);
-			anim.SetBool("idle0ToWalk", false);
-			anim.SetBool("idle0ToRun", false);
-			anim.SetBool("idle0ToWound", false);
-			anim.SetBool("idle0ToSkill0", false);
-			anim.SetBool("idle0ToAttack1", false);
-			anim.SetBool("idle0ToAttack0", false);
-			anim.SetBool("idle0ToDeath", false);
-		} else {
-			anim.SetBool("runToIdle0", false);
-		}
-	}
-*/
-
-
-    /* Update	FLY TODO
-        if (canFly) {
-            //if (Vector3.Distance (ground.transform.position, transform.position) < 1) {
-            if(transform.position.y >0.5f)
-                transform.Translate (0.0f,-1.0f * Time.deltaTime * flySpeed, -1.0f * Time.deltaTime * flySpeed);
-            } else {
-        */
-
-
-
-    //hit = new RaycastHit();
-    //if (Physics.Raycast (transform.position, -Vector3.up, out hit)) {
-    //	float distanceToGround = hit.distance;
-    //TODO
-    //Debug.Log(distanceToGround);
-    //}
-
-    /*
-    while(transform.position.y <=0.0f)
-        transform.Translate (0.0f,0.1f*Time.deltaTime,0.0f);
-
-    canFly = false;
-
-//}
-
-*/
-
-    //transform.Translate (0.0f,-transform.position.y,0.0f);
-
 }
