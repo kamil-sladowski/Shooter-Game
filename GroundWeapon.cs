@@ -10,7 +10,6 @@ public class GroundWeapon : MonoBehaviour {
 	public int weaponNumber;
 	private bool isPlayerInTrigger;
 	public Text grabWeapon;
-    //public ParticleSystem particles;
 
     // Use this for initialization
     void Start(){
@@ -25,7 +24,6 @@ public class GroundWeapon : MonoBehaviour {
 				col.SendMessage("addWeapon", weaponNumber);
 				isPlayerInTrigger = false;
 				Destroy(gameObject);
-                //Destroy(particles);
 				grabWeapon.enabled = false;
 			}
 		}
