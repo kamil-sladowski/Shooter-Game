@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class takeAmmo : MonoBehaviour {
+public class TakeAmmo : MonoBehaviour {
 	public float ammunition = 25.0f;
 	public byte gunType = 1;
 	private GunInventory gunInfo;
