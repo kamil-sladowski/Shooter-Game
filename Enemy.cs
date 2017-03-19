@@ -13,23 +13,23 @@ public class Enemy : MonoBehaviour {
 	public float attackDistance = 2.0f;
 	public float attackStrenght = 5.0f;
 	public float attackDelay = 1.0f;
-    public float turnSpeed = 360.0f;
-    public GameObject corpse;
-    public UnityEvent enemyKilledEvent;
+    	public float turnSpeed = 360.0f;
+   	public GameObject corpse;
+    	public UnityEvent enemyKilledEvent;
 
-    private float hp = 500.0f;
-    private AICharacterControl aiContol;
-    private Patrol patrolScript;
+    	private float hp = 500.0f;
+    	private AICharacterControl aiContol;
+    	private Patrol patrolScript;
 
 	private float timer = 0;
 	private string currentState;
 	private Animator anim;
 	private AnimatorStateInfo stateInfo;
-    private Transform player;
+    	private Transform player;
 
-    private bool seePlayer = false;
-    public float maxTimeOfChasing = 10.0f;
-    private float ChasingCounter;
+   	private bool seePlayer = false;
+    	public float maxTimeOfChasing = 10.0f;
+    	private float ChasingCounter;
 
     void Awake() {
         GameOverMenager.countOfEnemies++;
